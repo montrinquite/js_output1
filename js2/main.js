@@ -4,7 +4,7 @@ const btnClear = document.getElementById("btnClear");
 const tblRecords = document.getElementById("tblRecords");
 
 
-let arrRecords = new Array();
+let arrRecords = JSON.parse(localStorage.getItem("arrRecords")) || [];
 const tblTHsLabels = ["First Name", "Middle Name", "Last Name", "Age", "Action"];
 
 
@@ -103,7 +103,6 @@ btnClearItems.addEventListener("click", () => {
 
 
 function iterateRecords() {
-    // const tblTHs = new Array();
 
     while(tblRecords.hasChildNodes()) {
         tblRecords.removeChild(tblRecords.firstChild);
@@ -255,3 +254,12 @@ function sortRecords() {
 
 sortByName.addEventListener("change", sortRecords);
 sortByOrder.addEventListener("change", sortRecords);
+
+const btnSaveLocal = document.getElementById("btnSaveLocal");
+
+btnSaveLocal.addEventListener("click", () => {
+
+    localStorage.setItem("arrRecords", JSON.stringify(arrRecords));
+    alert("Records saved to local storage.");
+
+});
