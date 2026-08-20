@@ -69,26 +69,30 @@
         <table id="tblRecords" style="border-collapse: collapse; margin: auto;">
         </table>
     </fieldset>
-
-    <button id="btnClearItems" style="margin-top: 10px;">Clear Records</button>
     
-    <label>Sort by: 
+    <div id="bottomControls" style="display: none;">
 
-        <select name="" id="">
+        <button id="btnClearItems" style="margin-top: 10px;">Clear Records</button>
+
+        <label>Sort by: 
+
+        <select id="sortByName">
             <option value="">Please Select</option>
-            <option value="">First Name</option>
-            <option value="">Last Name</option>
+            <option value="fname">First Name</option>
+            <option value="lname">Last Name</option>
         </select>
 
-        <select name="" id="">
+        <select id="sortByOrder">
             <option value="">Please Select</option>
             <option value="asc">A - Z</option>
             <option value="desc">Z - A</option>
         </select>
         
-        <button>Save to Local Storage</button>
+        <button id="btnSaveLocal">Save to Local Storage</button>
 
-    </label>
+        </label>
+    </div>
+    
     <script src="main.js"></script>
 </body>
 </html>
