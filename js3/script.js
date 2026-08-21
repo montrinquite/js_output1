@@ -7,12 +7,11 @@ loadData.addEventListener("click", function() {
     fetch(apiURL)
         .then(response => response.json())
         .then(data => {
-            // Build the table
+
             let table = document.createElement("table");
             table.style.borderCollapse = "collapse";
             table.style.width = "100%";
 
-            // Header row
             let thead = document.createElement("thead");
             thead.innerHTML = `
                 <tr>
@@ -24,7 +23,6 @@ loadData.addEventListener("click", function() {
             `;
             table.appendChild(thead);
 
-            // Body rows
             let tbody = document.createElement("tbody");
             data.forEach(todo => {
                 let row = document.createElement("tr");
@@ -39,8 +37,6 @@ loadData.addEventListener("click", function() {
                 tbody.appendChild(row);
             });
             table.appendChild(tbody);
-
-            // Clear old table (if any) and insert new one
             tableContainer.innerHTML = "";
             tableContainer.appendChild(table);
         })
